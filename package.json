@@ -5,7 +5,7 @@
   "repository": "github:fabiospampinato/vscode-banal",
   "description": "A super quick way to inspect the bundle size of npm dependencies, via a code lens.",
   "icon": "resources/logo-128x128.png",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "activationEvents": [
     "onLanguage:json"
