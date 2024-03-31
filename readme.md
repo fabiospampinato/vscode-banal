@@ -6,6 +6,8 @@
 
 A super quick way to inspect the bundle size of npm dependencies, via a code lens.
 
+Clicking the code lens will instantly open up [`esbuild`](https://github.com/evanw/esbuild)'s bundle analyzer for the currently installed version of the target dependency.
+
 This extension requires [`npm-cli`](https://github.com/npm/cli) and [`banal-cli`](https://github.com/fabiospampinato/banal)>=1.6.0 to be installed and it only works for npm dependencies listead in `package.json` files.
 
 ## Install
