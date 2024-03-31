@@ -1,0 +1,93 @@
+{
+  "name": "vscode-banal",
+  "displayName": "Banal",
+  "publisher": "fabiospampinato",
+  "repository": "github:fabiospampinato/vscode-banal",
+  "description": "A super quick way to inspect the bundle size of npm dependencies, via a code lens.",
+  "icon": "resources/logo-128x128.png",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "activationEvents": [
+    "onLanguage:json"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Banal - Configuration",
+      "properties": {
+        "banal.enabled": {
+          "type": "boolean",
+          "description": "Whether the code lens should be enabled or not",
+          "default": true
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "banal.open",
+        "title": "Banal: Open"
+      },
+      {
+        "command": "banal.toggle",
+        "title": "Banal: Toggle"
+      },
+      {
+        "command": "banal.disable",
+        "title": "Banal: Disable"
+      },
+      {
+        "command": "banal.enable",
+        "title": "Banal: Enable"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "banal.open",
+          "when": "false"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "bundle:dev": "tsex bundle --external vscode --format cjs --platform node --no-declare",
+    "bundle:prod": "tsex bundle --external vscode --format cjs --platform node --minify",
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "debug": "code --extensionDevelopmentPath $PWD --inspect-extensions 9222",
+    "package": "vsce package",
+    "prepublishOnly": "scex -bs clean bundle:prod",
+    "vscode:prepublish": "scex -bs clean bundle:prod",
+    "dev": "scex -bs bundle:dev debug",
+    "prod": "scex -bs bundle:prod debug"
+  },
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "keywords": [
+    "vscode",
+    "vsc",
+    "extension",
+    "banal",
+    "bundle",
+    "analizer",
+    "esbuild",
+    "dependencies"
+  ],
+  "dependencies": {
+    "crypto-sha": "^2.1.0",
+    "string-escape-regex": "^1.0.0",
+    "vscode-extras": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.28",
+    "@types/vscode": "^1.87.0",
+    "esbuild": "0.20.2",
+    "scex": "^1.1.0",
+    "tsex": "^3.2.1",
+    "typescript": "^5.4.3"
+  }
+}
